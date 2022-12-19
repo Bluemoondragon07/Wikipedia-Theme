@@ -15,3 +15,17 @@ A theme designed to make your Obsidian workspace look and feel like [Wikipedia](
 - For optimal viewing quality, go to **Editor** in **Settings** and **turn off *Readable Line Length***.
 - This theme is not compatible with dark mode.
 - I'm not a theme developer or anything, just a 15-year-old who likes to play with css.
+
+***
+
+![](assets/Headings-showcase.png)
+*Wikipedia-style headings*
+
+![](assets/dataview-table-showcase.png)
+*Dataview Support*
+
+![](assets/List-showcase.png)
+*Square checkboxes*
+
+![](assets/Article-showcase.png)
+*Floating images & callouts; Wikipedia-style links*
