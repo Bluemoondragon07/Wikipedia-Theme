@@ -1,10 +1,12 @@
 ![](assets/horse-demo.png)
+
 A theme designed to make your Obsidian workspace look and feel like [Wikipedia](wikipedia.org)! 
 
 ## ⭐ Features
 - Wikipedia-style headings, titles, tabs, sidebars, and more.
 - Support for inline metadata and tables created with the Dataview plugin.
-- images and callouts float to the side.
+- Images and callouts float to the side.
+- Works on mobile devices.
 
 ## ☝🏽 Notes
 - Much of the css was taken directly from wikipedia.org.
