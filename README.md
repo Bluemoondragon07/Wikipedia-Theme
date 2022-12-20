@@ -1,6 +1,6 @@
 ![](assets/Horse-example.png)
 
-A theme designed to make your Obsidian workspace look and feel like [Wikipedia](wikipedia.org)! 
+A theme designed to make your Obsidian workspace look and feel like wikipedia.org! 
 
 ## ⭐ Features
 - Wikipedia-style headings, titles, tabs, sidebars, and more.
