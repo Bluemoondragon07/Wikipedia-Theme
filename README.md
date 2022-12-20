@@ -1,4 +1,4 @@
-![](assets/Horse-example.png)
+![](assets/article-example.png)
 
 A theme designed to make your Obsidian workspace look and feel like wikipedia.org! 
 
