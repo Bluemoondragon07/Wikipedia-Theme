@@ -16,7 +16,7 @@ A theme designed to make your Obsidian workspace look and feel like wikipedia.or
 - This theme is not compatible with dark mode.
 - I'm not a theme developer or anything, just a 15-year-old who likes to play with css.
 
-***
+## Screenshots 
 
 ![](assets/Headings-showcase.png)
 *Wikipedia-style headings*
