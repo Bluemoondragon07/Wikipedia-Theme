@@ -132,16 +132,7 @@ body{
   --table-border-width: 0.5px;
 }
 
-/* BLOCKQUOTES */
-.markdown-rendered blockquote {
-  overflow: hidden;
-  border-left: none;
-  color: black;
-  margin: 0.5em 0 0.5em 1em;
-  padding: 0.8em;
-  font-style: italic;
- 
-}
+
 
 /* Navigation Ribbon */
 
@@ -288,6 +279,8 @@ a.tag, .editor .cl-hashtag {
   font-size: 0.9em;
 }
 
+/* callouts */
+
 .callout {
   overflow: hidden;
   border: 1px solid #a2a9b1;
@@ -329,6 +322,70 @@ a.tag, .editor .cl-hashtag {
   margin: 0;
 }
 
+
+
+
+/* BLOCKQUOTES */
+
+body.blockquote-infobox {
+  --blockquote-border: 1px solid #a2a9b1;
+  --blockquote-font-style: normal;
+  --blockquote-padding: 0.2em;
+  --blockquote-background-color: #f8f9fa;
+  --blockquote-float: right;
+  --blockquote-clear: right;
+  --blockquote-line-height: 1.5em;
+  --blockquote-width: 25%;
+  --blockquote-margin: 10px;
+  
+}
+
+body.blockquote-normal {
+  --blockquote-border: none;
+  --blockquote-font-style: italic;
+  --blockquote-padding: 0.8em;
+  --blockquote-background-color: transparent;
+  --blockquote-float:inherit;
+  --blockquote-clear: inherit;
+  --blockquote-radius: var(--callout-radius);
+  --blockquote-margin: 0.5em 0 0.5em 1em;
+}
+
+.markdown-rendered blockquote {
+  overflow: hidden;
+  border-left: none;
+  color: black;
+  margin: 0.5em 0 0.5em 1em;
+  padding: var(--blockquote-padding);
+  font-style: var(--blockquote-font-style);
+  border: var(--blockquote-border);
+  background-color: var(--blockquote-background-color);
+  float: var(--blockquote-float);
+  clear: var(--blockquote-clear);
+  line-height: var(--blockquote-line-height);
+  width: var(--blockquote-width);
+  margin: var(--blockquote-margin);
+}
+
+/*
+overflow: hidden;
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  color: black;
+  margin: 0.5em 0 0.5em 1em;
+  padding: 0.2em;
+  float: right;
+  clear: right;
+  font-size: 100%;
+  line-height: 1.5em;
+  width: 22em;
+  border-radius: var(--callout-radius);
+  mix-blend-mode: var(--callout-blend-mode);
+  margin: 10px;
+  width: 25%;
+  text-align: center;
+*/
+
 /* BODY TEXT */
 .markdown-preview-view {
   font-size: 0.875em;
@@ -340,3 +397,27 @@ a.tag, .editor .cl-hashtag {
 body {
   --list-marker-color: var(--text-normal);
 }
+
+/* Hide Scrollbars */
+body:not(.native-scrollbars) ::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* @settings
+
+name: Wikipedia
+id: wikipedia-theme
+settings:
+    - 
+        id: blockquote-settings
+        title: Blockquote Style
+        type: class-select
+        allowEmpty: false
+        default: blockquote-normal
+        options:
+            - blockquote-normal
+            - blockquote-infobox
+   
+
+*/
