@@ -7,6 +7,69 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 
+/* Themes */
+
+body.use-accent {
+ --light-accent-light-mode: var(--color-accent-1);
+ --dark-accent-light-mode: var(--color-accent-2);
+ --light-accent-dark-mode: var(--color-accent-1);
+ --dark-accent-dark-mode: var(--color-accent-2);
+ --gradient-color-light: var(--color-accent-1);
+ --gradient-color-dark: hsl(var(--accent-h), 70%, 50%, 10%);
+}
+
+body.wiki-accent {
+  --light-accent-light-mode: hsl(217, 93%, 35%);
+  --dark-accent-light-mode: hsl(245, 100%, 25%);
+  --light-accent-dark-mode: hsl(217, 60%, 60%);
+  --dark-accent-dark-mode: hsl(245, 93%, 77%);
+  --gradient-color-light: #77c1f6;
+  --gradient-color-dark: #77c1f62f;
+
+  --accent-h: 217 !important;
+}
+.theme-light {
+	/* Tabs */
+	--tab-gradient: linear-gradient(to top,var(--gradient-color-light) 0, var(--gradient-color-dark) 1px,#ffffff00 100%);
+	--tab-active-color: white;
+	/* links */ 
+	--link-color: var(--light-accent-light-mode);
+	--link-visited-color: var(--dark-accent-light-mode);
+	/* Sidebars */
+	--folder-title-color: #54595d;
+  /* infoboxes */
+  --infobox-color: #f8f9fa;
+  --h6-background: rgb(235,235,210);
+  /* borders */
+  --border-color: #a2a9b1;
+  /* tables */
+  --table-heading-color: #eaecf0;
+}
+
+
+.theme-dark {
+	/* Tabs */
+	--tab-gradient: linear-gradient(to top,var(--gradient-color-light) 0,  var(--gradient-color-dark) 1px, #3a424800 100%);
+	--tab-active-color: hsl(0, 0%, 100%, 10%);
+	/* links */ 
+	--link-color: var(--light-accent-dark-mode);
+	--link-visited-color: var(--dark-accent-dark-mode);
+	/* Sidebars */
+	--folder-title-color: var(--text-normal);
+	  /* infoboxes */
+    --infobox-color: hsl(1, 0%, 20%);
+    --h6-background: hsl(1, 0%, 25%);
+    --background-primary: hsl(1, 0%, 15%);
+    --background-secondary: hsl(1, 0%, 18%);
+  /* borders */
+  --border-color: hsl(1, 0%, 30%);
+  /* tables */
+  --table-heading-color: #5a5b5d;
+}
+
+
+
+
 body {
   --default-font: 'Archivo', Arial, sans-serif;
 
@@ -20,13 +83,22 @@ body {
   --tab-radius: 0px;
   --tab-outline-color: transparent;
   --tab-radius-active: 0px 0px 0 0;
-  --tab-divider-color: #77c1f6;
+  --tab-divider-color: var(--color-accent-1);
   --tab-curve: 0px;
+
+  
+}
+
+/* Navigation Ribbon */
+.workspace-ribbon.mod-left.is-collapsed {
+  transition: background-color 250ms 95ms ease-in-out;
+  background-color: var(--background-secondar);
+  border-right-color: var(--divider-color);
 }
 
 /* TABS */
 .workspace .mod-root .workspace-tab-header {
-    background-image: linear-gradient(to top,#77c1f6 0,#e8f2f8 1px,#ffffff 100%);
+    background-image: var(--tab-gradient);
     background-position: left bottom;
     background-repeat: repeat-x;
     float: left;
@@ -39,9 +111,9 @@ body {
 
 }
 .workspace-tab-header.is-active {
-  color: #202122;
+    color: var(--text-normal);
     text-decoration: none;
-    background-color: white;
+    background-color: var(--tab-active-color);
 }
 
 /* TITLE & HEADERS */
@@ -95,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h6 {
-  background-color: rgb(235,235,210);
+  background-color: var(--h6-background);
   padding:0.2em;
   text-align: center;
   margin-bottom: 0.2;
@@ -104,9 +176,6 @@ h6 {
 
 
 /* Links */
-body{
-  --link-color: #0645ad;
-}
 a {
   text-decoration: none;
     background: none;
@@ -114,21 +183,21 @@ a {
 
 /* TABLES */
 .markdown-rendered table {
-background-color: #f8f9fa;
-    color: #202122;
+background-color: var(--infobox-color);
+    color: var(--text-normal);
     margin: 1em 0;
-    border: 1.5px solid #a2a9b1;
+    border: 1.5px solid var(--border-color);
     border-collapse: collapse;
 }
 
 .markdown-rendered table thead tr {
   padding: 0.2em 0.4em;
-  background-color: #eaecf0;
+  background-color: var(--table-heading-color);
     text-align: center;
 }
 
 body{
-  --table-border-color: #a2a9b1;
+  --table-border-color: var(--border-color);
   --table-border-width: 0.5px;
 }
 
@@ -141,7 +210,6 @@ body {
   --vault-name-font-size: 1.8em;
   --nav-collapse-icon-color: transparent;
   --nav-collapse-icon-color-collapsed: transparent;
-  --link-visited-color: #0b0080;
 
 }
 
@@ -160,7 +228,7 @@ body {
 }
 .nav-folder-title {
   display: block;
-    color: #54595d;
+    color: var(--folder-title-color);
     
     font-size: 0.75em;
     font-family: 'Linux Libertine','Georgia','Times',serif;
@@ -184,8 +252,6 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
 
 /* DATAVIEW STYLING */
 .dataview.inline-field-key {
-  padding-left: 8px;
-  padding-right: 8px;
   font-family: 'Linux Libertine','Georgia','Times',serif;
   background-color: transparent;
   color: var(--text-nav-selected);
@@ -200,22 +266,84 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
   font-family: sans-serif;
   background-color: transparent;
   padding: 0px;
+  
 }
 
 .dataview.inline-field-standalone-value {
-  padding-left: 1px;
-  padding-right: 1px;
   font-family: inherit;
   background-color: transparent;
   color: var(--text-nav-selected);
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Frontmatter */
+.frontmatter-container .frontmatter-container-header {
+  color: var(--text-normal);
+  font-size: var(--font-smaller);
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: var(--cursor);
+  font-weight: var(--font-medium);
+  display: flex;
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.frontmatter-container {
+  background-color: var(--infobox-color);
+  width: 100%;
+  margin: 1em auto 1em auto;
+  padding: 0.2em;
+  line-height: 1.5em;
+  border: 1px solid var(--border-color);
+}
+.frontmatter-container .frontmatter-section-label {
+    font-size: inherit;
+    color: var(--text-normal);
+    font-weight: bold;
+    display:block;
+    text-indent: 2em;
+    padding-right: 0.5em;
+    flex-basis: 4em;
+    flex-shrink: 0;
+    background-color: var(--h6-background);
+  padding:0.2em;
+  text-align: center;
+  margin-bottom: 0.2;
+}
+.frontmatter-container .frontmatter-section-data {
+  font-size: inherit;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-2-2);
+  text-align: center;
+}
+.frontmatter-container .frontmatter-section {
+  display: block;
+  text-align: center;
+  margin-bottom: var(--size-2-3);
 }
 
 /* Wrap Text around IMAGES */
 
+body.float-image {
+ --image-float: right;
+ --image-width: 25%;
+ --image-margin: 0.5em 0 0.5em 1em;
+}
+body.image-normal {
+  --image-float: inherit;
+  --image-width: var(--image-controlled-width);
+  --image-controlled-width: 100%;
+  --image-margin: 0px auto 0px auto;
+}
+
 img{
-  float: right;
-  margin: 10px;
-  width: 25%;
+  display: block;
+  float: var(--image-float);
+  margin: var(--image-margin);
+  width: var(--image-width);
  }
 
  /* Embeds */
@@ -281,26 +409,36 @@ a.tag, .editor .cl-hashtag {
 
 /* callouts */
 
+body.info-float {
+  --callout-margin: 0.5em 0 0.5em 1em;
+  --callout-float: right;
+  --callout-width: 25%;
+}
+
+body.info-center {
+  --callout-margin: 1em auto 1em auto;
+  --callout-float: inherit;
+  --callout-width: 100%;
+}
 .callout {
+  display: block;
   overflow: hidden;
-  border: 1px solid #a2a9b1;
-  background-color: #f8f9fa;
-  color: black;
-  margin: 0.5em 0 0.5em 1em;
+  border: 1px solid var(--border-color);
+  background-color: var(--infobox-color);
+  color: var(--text-normal);
+  margin: var(--callout-margin);
   padding: 0.2em;
-  float: right;
+  float: var(--callout-float);
   clear: right;
   font-size: 100%;
   line-height: 1.5em;
-  width: 22em;
   border-radius: var(--callout-radius);
   mix-blend-mode: var(--callout-blend-mode);
-  margin: 10px;
-  width: 25%;
+  width: var(--callout-width);
   text-align: center;
 }
 .callout-title {
-  background-color: rgb(235,235,210);
+  background-color: var(--h6-background);
   padding:0.2em;
 }
 .callout-title-inner {
@@ -311,7 +449,7 @@ a.tag, .editor .cl-hashtag {
 }
 
 .callout-icon .svg-icon {
-  color: black;
+  color: var(--text-normal);
   margin-left: 2px;
 }
 
@@ -328,16 +466,23 @@ a.tag, .editor .cl-hashtag {
 /* BLOCKQUOTES */
 
 body.blockquote-infobox {
-  --blockquote-border: 1px solid #a2a9b1;
+  --blockquote-border: 1px solid var(--border-color);
   --blockquote-font-style: normal;
   --blockquote-padding: 0.2em;
-  --blockquote-background-color: #f8f9fa;
-  --blockquote-float: right;
+  --blockquote-background-color: var(--infobox-color);
   --blockquote-clear: right;
   --blockquote-line-height: 1.5em;
-  --blockquote-width: 25%;
+}
+body.blockquote-infobox.info-center {
+  --blockquote-margin: 1em auto 1em auto;
+  --blockquote-float: inherit;
+  --blockquote-width: 100%;
+}
+
+body.blockquote-infobox.info-float {
   --blockquote-margin: 10px;
-  
+  --blockquote-float: right;
+  --blockquote-width: 25%;
 }
 
 body.blockquote-normal {
@@ -354,8 +499,7 @@ body.blockquote-normal {
 .markdown-rendered blockquote {
   overflow: hidden;
   border-left: none;
-  color: black;
-  margin: 0.5em 0 0.5em 1em;
+  color: var(--text-normal);
   padding: var(--blockquote-padding);
   font-style: var(--blockquote-font-style);
   border: var(--blockquote-border);
@@ -367,24 +511,7 @@ body.blockquote-normal {
   margin: var(--blockquote-margin);
 }
 
-/*
-overflow: hidden;
-  border: 1px solid #a2a9b1;
-  background-color: #f8f9fa;
-  color: black;
-  margin: 0.5em 0 0.5em 1em;
-  padding: 0.2em;
-  float: right;
-  clear: right;
-  font-size: 100%;
-  line-height: 1.5em;
-  width: 22em;
-  border-radius: var(--callout-radius);
-  mix-blend-mode: var(--callout-blend-mode);
-  margin: 10px;
-  width: 25%;
-  text-align: center;
-*/
+
 
 /* BODY TEXT */
 .markdown-preview-view {
@@ -409,15 +536,90 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
 name: Wikipedia
 id: wikipedia-theme
 settings:
+    -
+      id: color-header
+      title: Colors
+      type: heading
+      level: 2
+      collapsed: true
+    - 
+      id: theme-colors
+      title: Accent Color
+      type: class-select
+      allowEmpty: false
+      default: wiki-accent
+      options:
+          -
+            label: Wikipedia accents
+            value: wiki-accent
+          -
+            label: Custom accent
+            value: use-accent
+    -
+      id: blockquote-header
+      title: Infoboxes
+      type: heading
+      level: 2
+      collapsed: true
     - 
         id: blockquote-settings
         title: Blockquote Style
+        description: choose whether to show blockquotes as infoboxes or Wikipedia-style quotes.
         type: class-select
         allowEmpty: false
         default: blockquote-normal
         options:
-            - blockquote-normal
-            - blockquote-infobox
-   
+            - 
+              label: Wikipedia quote
+              value: blockquote-normal
+            - 
+              label: infobox
+              value: blockquote-infobox
+    -
+        id: blockquote-placement
+        title: Infobox Placement
+        description: choose whether to float infoboxes to the right or set them in the default center position.
+        type: class-select
+        allowEmpty: false
+        default: info-float
+        options:
+            -
+              label: float right
+              value: info-float
+            -
+              label: center
+              value: info-center
+    -
+        id: images-header
+        title: Images
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: image-settings
+        title: Image Placement
+        type: class-select
+        allowEmpty: false
+        default: float-image
+        options:
+            - 
+              label: float right
+              value: float-image
+            - 
+              label: center
+              value: image-normal 
+    - 
+        id: image-controlled-width
+        title: Image Size
+        description: Only effects images when image placement is set to center.
+        type: variable-number-slider
+        format: "%"
+        default: 80
+        min: 25
+        max: 100
+        step: 10
+
+    
+
 
 */
