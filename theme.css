@@ -331,6 +331,7 @@ body.float-image {
  --image-float: right;
  --image-width: 25%;
  --image-margin: 0.5em 0 0.5em 1em;
+ --image-clear: right;
 }
 body.image-normal {
   --image-float: inherit;
@@ -344,6 +345,7 @@ img{
   float: var(--image-float);
   margin: var(--image-margin);
   width: var(--image-width);
+  clear: var(--image-clear);
  }
 
  /* Embeds */
@@ -480,7 +482,7 @@ body.blockquote-infobox.info-center {
 }
 
 body.blockquote-infobox.info-float {
-  --blockquote-margin: 10px;
+  --blockquote-margin: 0.5em 0 0.5em 1em;
   --blockquote-float: right;
   --blockquote-width: 25%;
 }
