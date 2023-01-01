@@ -1,0 +1,51 @@
+/* This Snippet will make images, blockquotes, and callouts float to the right. */
+
+
+/* Blockquote Section. Delete if you don't want blockquotes to be affected */
+.markdown-preview-view blockquote {
+    overflow: auto;
+    border-left: none;
+    color: var(--text-normal);
+    padding: 0.5em;
+    float:right;
+    clear: right;
+    width: 30% !important;
+    margin: 0.5em 1em 0.5em 1em !important;
+    line-height: 1.5em;
+    font-size: 0.8em;
+    background-color: var(--background-secondary) !important;
+  }
+
+  .markdown-preview-view blockquote::before{
+    background: transparent !important;
+  }
+
+
+
+/* Image Section */
+ 
+  img{
+    display: block;
+    float: right;
+    margin: 0.5em 1em 0.5em 1em !important;
+    width: 30% !important;
+    clear: right;
+   }
+
+/* Callout Section */
+   .callout {
+    overflow:auto;
+    border-left: none;
+    color: var(--text-normal);
+    padding: 0.5em;
+    float:right;
+    clear: right;
+    width: 30% !important;
+    margin: 0.5em 1em 0.5em 1em !important;
+    line-height: 1.5em;
+    font-size: 0.8em;
+  }
+
+  .callout::before {
+    background: transparent !important;
+  }
