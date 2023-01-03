@@ -18,7 +18,7 @@ body.use-accent {
  --gradient-color-dark: hsl(var(--accent-h), 70%, 50%, 10%);
 }
 
-body.wiki-accent {
+body.wiki-accent, body {
   --light-accent-light-mode: hsl(217, 93%, 35%);
   --dark-accent-light-mode: hsl(245, 100%, 25%);
   --light-accent-dark-mode: hsl(217, 60%, 60%);
@@ -26,7 +26,7 @@ body.wiki-accent {
   --gradient-color-light: #77c1f6;
   --gradient-color-dark: #77c1f62f;
 
-  --accent-h: 217 !important;
+  --accent-h: 217;
 }
 .theme-light {
 	/* Tabs */
@@ -327,7 +327,7 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
 
 /* Wrap Text around IMAGES */
 
-body.float-image {
+body.float-image, body {
  --image-float: right;
  --image-width: 25%;
  --image-margin: 0.5em 0 0.5em 1em;
@@ -411,7 +411,7 @@ a.tag, .editor .cl-hashtag {
 
 /* callouts */
 
-body.info-float {
+body.info-float, body {
   --callout-margin: 0.5em 0 0.5em 1em;
   --callout-float: right;
   --callout-width: 25%;
@@ -487,7 +487,7 @@ body.blockquote-infobox.info-float {
   --blockquote-width: 25%;
 }
 
-body.blockquote-normal {
+body.blockquote-normal, body {
   --blockquote-border: none;
   --blockquote-font-style: italic;
   --blockquote-padding: 0.8em;
