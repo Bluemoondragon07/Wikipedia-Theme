@@ -23,7 +23,8 @@ A theme designed to make your Obsidian workspace look and feel like wikipedia.or
 - Blockquotes can be formatted either like Wikipedia quotes or like infoboxes
 - Images and infoboxes can be centered (I recommend this if you'd like to keep Readable Line Length turned off)
 - You can now change image size (only applied if images are centered)
-
+## ❗ Got Ideas for Improvement? I'd Love to Hear Them!
+If you find any issues you know how to fix or you have modifications you'd like me to merge into the theme, please let me know. I barely know css and just did this as a fun project, but if you find any ways to make this theme better, I'd love to hear them.
 
 ## Screenshots 
 
