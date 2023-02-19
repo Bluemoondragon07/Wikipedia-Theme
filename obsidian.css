@@ -7,9 +7,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 
+/* make page full width */
+body {
+  --file-line-width: 100%;
+}
+
 /* Themes */
 
-body.use-accent {
+.use-accent {
  --light-accent-light-mode: var(--color-accent-1);
  --dark-accent-light-mode: var(--color-accent-2);
  --light-accent-dark-mode: var(--color-accent-1);
@@ -18,7 +23,7 @@ body.use-accent {
  --gradient-color-dark: hsl(var(--accent-h), 70%, 50%, 10%);
 }
 
-body.wiki-accent, body {
+.wiki-accent {
   --light-accent-light-mode: hsl(217, 93%, 35%);
   --dark-accent-light-mode: hsl(245, 100%, 25%);
   --light-accent-dark-mode: hsl(217, 60%, 60%);
@@ -26,8 +31,14 @@ body.wiki-accent, body {
   --gradient-color-light: #77c1f6;
   --gradient-color-dark: #77c1f62f;
 
-  --accent-h: 217;
+  --accent-h: 217 !important;
+  --accent-s: 79% !important;
+  --accent-l: 57% !important;
 }
+
+
+/* colors */
+
 .theme-light {
 	/* Tabs */
 	--tab-gradient: linear-gradient(to top,var(--gradient-color-light) 0, var(--gradient-color-dark) 1px,#ffffff00 100%);
@@ -37,6 +48,7 @@ body.wiki-accent, body {
 	--link-visited-color: var(--dark-accent-light-mode);
 	/* Sidebars */
 	--folder-title-color: #54595d;
+
   /* infoboxes */
   --infobox-color: #f8f9fa;
   --h6-background: rgb(235,235,210);
@@ -44,13 +56,36 @@ body.wiki-accent, body {
   --border-color: #a2a9b1;
   /* tables */
   --table-heading-color: #eaecf0;
+  /* code */
+  --code-color: var(--infobox-color) !important;
+  --background-modifier-border: rgba(0, 0, 0, 0.151);
+  --color-red-rgb: 255, 212, 212;
+  --color-red: #ffd4d4;
+  --color-cyan-rgb: 206, 242, 224;
+  --color-cyan: #cef2e0;
+  --color-orange-rgb: 255, 242, 230;
+  --color-orange: #FFF2E6;
+  --color-yellow-rgb: 245, 245, 192;
+  --color-yellow: #F5F5C0;
+  --color-green-rgb: 224, 242, 206;
+  --color-green: #E0F2CE;
+  --color-blue-rgb: 206, 223, 242;
+  --color-blue: #cedff2;
+  --color-purple-rgb: 221, 206, 242;
+  --color-purple: #ddcef2;
+  --color-pink-rgb: 242, 206, 221;
+  --color-pink: #f2cedd;
+  --callout-quote: 238, 238, 238;
 }
 
+/* code block */
+.markdown-rendered pre {
+  border: 1px var(--border-color) solid;
+}
 
 .theme-dark {
 	/* Tabs */
 	--tab-gradient: linear-gradient(to top,var(--gradient-color-light) 0,  var(--gradient-color-dark) 1px, #3a424800 100%);
-	--tab-active-color: hsl(0, 0%, 100%, 10%);
 	/* links */ 
 	--link-color: var(--light-accent-dark-mode);
 	--link-visited-color: var(--dark-accent-dark-mode);
@@ -59,19 +94,37 @@ body.wiki-accent, body {
 	  /* infoboxes */
     --infobox-color: hsl(1, 0%, 20%);
     --h6-background: hsl(1, 0%, 25%);
-    --background-primary: hsl(1, 0%, 15%);
-    --background-secondary: hsl(1, 0%, 18%);
+    --background-primary: rgb(47, 47, 47);
+    --background-secondary: rgb(41, 41, 41);
   /* borders */
   --border-color: hsl(1, 0%, 30%);
   /* tables */
   --table-heading-color: #5a5b5d;
+  --callout-quote:138, 138, 138;
+  --color-red-rgb: 198, 131, 131;
+  --color-red: #c68383;
+  --color-cyan-rgb: 135, 186, 160;
+  --color-cyan: #87baa0;
+  --color-orange-rgb: 197, 172, 149;
+  --color-orange: #c5ac95;
+  --color-yellow-rgb: 196, 196, 141;
+  --color-yellow: #c4c48d;
+  --color-green-rgb: 159, 183, 134;
+  --color-green: #9fb786;
+  --color-blue-rgb: 134, 156, 181;
+  --color-blue: #869cb5;
+  --color-purple-rgb: 164, 146, 191;
+  --color-purple: #a492bf;
+  --color-pink-rgb: 199, 152, 172;
+  --color-pink: #c798ac;
+  --callout-quote:238, 238, 238;
 }
 
 
 
 
 body {
-  --default-font: 'Archivo', Arial, sans-serif;
+  --default-font: Arial, 'Archivo', sans-serif;
 
   --tab-radius: 0px;
   --radius-s: 0px;
@@ -97,23 +150,24 @@ body {
 }
 
 /* TABS */
-.workspace .mod-root .workspace-tab-header {
+.workspace-tab-header-container {
     background-image: var(--tab-gradient);
     background-position: left bottom;
     background-repeat: repeat-x;
-    float: left;
-    display: block;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    line-height: 1.125em;
-    white-space: nowrap;
-
 }
-.workspace-tab-header.is-active {
+.theme-light.workspace-tab-header.is-active {
     color: var(--text-normal);
     text-decoration: none;
-    background-color: var(--tab-active-color);
+    border-radius: 6px 6px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.44);
+}
+.theme-dark.workspace-tab-header.is-active {
+  background-color: rgba(0, 0, 0, 0.081);
+}
+.workspace-ribbon.mod-left:before {
+  background-image: var(--tab-gradient);
+  background-position: left bottom;
+  background-repeat: repeat-x;
 }
 
 /* TITLE & HEADERS */
@@ -142,9 +196,9 @@ body{
 
 }
 .inline-title {
-  font-size: 1.8em;
+  font-size: 2.3em;
   border-bottom: 1px solid #a2a9b1;
-  padding: 0;
+  padding: 0px;
   font-family: 'Linux Libertine','Georgia','Times',serif;
   line-height: 1.3;
 }
@@ -152,8 +206,11 @@ body{
 
 
 h1 {
-  margin-bottom: 0.6em;
+  margin-top: 1em;
+  margin-bottom: 0.25em;
   border-bottom: 1px solid #a2a9b1;
+  padding: 0;
+  line-height: 1.3;
 }
 
 
@@ -201,6 +258,19 @@ body{
   --table-border-width: 0.5px;
 }
 
+.table-view-table > thead > tr > th {
+  font-weight: 700;
+  border-color: var(--border-color);
+  font-size: 1.1em;
+  padding: 0.2em 0.4em;
+}
+.table-view-table > tbody > tr > td {
+  text-align: left;
+  border: 0.4px solid var(--border-color);
+  font-weight: 400;
+  max-width: 100%;
+}
+
 
 
 /* Navigation Ribbon */
@@ -220,7 +290,15 @@ body {
   cursor: default;
   font-variant: small-caps;
   line-height: 1.6em;
+  border-bottom: none;
+  padding-bottom: 0px;
 }
+
+.nav-folder.alx-folder-with-note>.nav-folder-title>.nav-folder-title-content {
+  text-decoration-line: none;
+  color: var(--link-color);
+}
+
 
 .nav-file-title {
   color: var(--link-color);
@@ -228,15 +306,17 @@ body {
 }
 .nav-folder-title {
   display: block;
-    color: var(--folder-title-color);
-    
     font-size: 0.75em;
     font-family: 'Linux Libertine','Georgia','Times',serif;
+    align-self: center;
+    color: var(--text-normal);
+    font-weight: normal;
     cursor: default;
-    background-image: linear-gradient(to right,rgba(200,204,209,0) 0,#c8ccd1 33%,#c8ccd1 66%,rgba(200,204,209,0) 100%);
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 1px;
+    border-color: var(--background-modifier-border);
+    border-width: 1px;
+    line-height: 1.2em;
+    padding: 0.25em 0;
+    border-bottom-style: solid;    
 }
 
 .nav-folder.mod-root .nav-folder > .nav-folder-children {
@@ -255,20 +335,36 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
   font-family: 'Linux Libertine','Georgia','Times',serif;
   background-color: transparent;
   color: var(--text-nav-selected);
-  
+}
+
+.callout-content .dataview.inline-field-key {
+  font-family: inherit;
+  font-size: var(--h4-size);
+  line-height: 1.6em;
+  font-weight: 600;
+  background-color: var(--h6-background);
+  text-align: center;
+  display: block;
+}
+.callout-content .dataview.inline-field-key::after {
+  display: none;
+}
+.callout-content .dataview.inline-field-value {
+  background-color: transparent;
+  padding: 0px;
+  display: block;
+  text-align: center;
 }
 
 .dataview.inline-field-key::after {
   content: ':';
 }
-
 .dataview.inline-field-value {
   font-family: sans-serif;
   background-color: transparent;
   padding: 0px;
   
 }
-
 .dataview.inline-field-standalone-value {
   font-family: inherit;
   background-color: transparent;
@@ -278,19 +374,16 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
 }
 
 /* Frontmatter */
-.frontmatter-container .frontmatter-container-header {
+.info-frontmatter .frontmatter-container .frontmatter-container-header {
   color: var(--text-normal);
   font-size: var(--font-smaller);
-  user-select: none;
-  -webkit-user-select: none;
-  cursor: var(--cursor);
-  font-weight: var(--font-medium);
   display: flex;
   border-bottom: 1px solid var(--background-modifier-border);
   padding-bottom: 0px;
   margin-bottom: 0px;
+  width: fit-content;
 }
-.frontmatter-container {
+.info-frontmatter .frontmatter-container {
   background-color: var(--infobox-color);
   width: 100%;
   margin: 1em auto 1em auto;
@@ -298,7 +391,7 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
   line-height: 1.5em;
   border: 1px solid var(--border-color);
 }
-.frontmatter-container .frontmatter-section-label {
+.info-frontmatter .frontmatter-container .frontmatter-section-label {
     font-size: inherit;
     color: var(--text-normal);
     font-weight: bold;
@@ -312,47 +405,41 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
   text-align: center;
   margin-bottom: 0.2;
 }
-.frontmatter-container .frontmatter-section-data {
+.info-frontmatter .frontmatter-container .frontmatter-section-data {
   font-size: inherit;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--size-2-2);
   text-align: center;
 }
-.frontmatter-container .frontmatter-section {
+.info-frontmatter .frontmatter-container .frontmatter-section {
   display: block;
   text-align: center;
   margin-bottom: var(--size-2-3);
 }
 
-/* Wrap Text around IMAGES */
-
-body.float-image, body {
- --image-float: right;
- --image-width: 25%;
- --image-margin: 0.5em 0 0.5em 1em;
- --image-clear: right;
-}
-body.image-normal {
-  --image-float: inherit;
-  --image-width: var(--image-controlled-width);
-  --image-controlled-width: 100%;
-  --image-margin: 0px auto 0px auto;
-}
+/* float images to the right */
 
 img{
-  display: block;
-  float: var(--image-float);
-  margin: var(--image-margin);
-  width: var(--image-width);
-  clear: var(--image-clear);
- }
+  float: right;
+  margin: 0.7em;
+  width: var(--image-controlled-width);
+  clear: right;
+  background-color: var(--infobox-color);
+  padding: 5px;
+  border: 1px var(--background-modifier-border) solid;
+}
+img ~ img {
+  float: left !important;
+  clear: left !important;
+}
+
+
 
  /* Embeds */
  .markdown-embed-title {
   text-align: center;
   font-weight: bold;
-  font-family: sans-serif;
   font-size: var(--h1-size);
   margin-bottom: 0.6em;
   z-index: 0;
@@ -379,10 +466,9 @@ body {
 a.tag, .editor .cl-hashtag {
   background-color: transparent;
   color: var(--link-color);
-  font-size: var(--tag-size);
-  text-decoration: var(--tag-decoration);
-  padding: var(--tag-padding-y) var(--tag-padding-x);
+  padding:0px;
   line-height: 1;
+  margin: 0px;
 }
 
 .external-link {
@@ -411,37 +497,53 @@ a.tag, .editor .cl-hashtag {
 
 /* callouts */
 
-body.info-float, body {
-  --callout-margin: 0.5em 0 0.5em 1em;
-  --callout-float: right;
-  --callout-width: 25%;
+.callout[data-callout="info"] {
+  float: right;
+  clear: right;
+  width: 30%;
+  margin: 0.7em;
+  background-color: var(--infobox-color);
 }
-
-body.info-center {
-  --callout-margin: 1em auto 1em auto;
-  --callout-float: inherit;
-  --callout-width: 100%;
+.callout[data-callout="info"] .callout-title {
+  background-color: var(--h6-background);
+  border: none;
+}
+.hide-callout-title .callout[data-callout="info"] .callout-title {
+  display: none;
+}
+.callout-content img {
+  float: none;
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+  display: block;
+  width: 100%;
 }
 .callout {
-  display: block;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  background-color: var(--infobox-color);
+  background-color: rgba(var(--callout-color), 0.25);
+  margin: 1em;
   color: var(--text-normal);
-  margin: var(--callout-margin);
   padding: 0.2em;
-  float: var(--callout-float);
-  clear: right;
-  font-size: 100%;
+  display: flexbox;
+  width: flex;
+  float: none;
+  clear: none;
   line-height: 1.5em;
-  border-radius: var(--callout-radius);
-  mix-blend-mode: var(--callout-blend-mode);
-  width: var(--callout-width);
-  text-align: center;
+}
+.callout-fold svg {
+  color: var(--text-normal);
+}
+.theme-dark .callout-title {
+  background-color: rgba(var(--callout-color), 0.25);
+}
+.theme-light .callout-title {
+  background-color: rgba(var(--callout-color), 1);
 }
 .callout-title {
-  background-color: var(--h6-background);
   padding:0.2em;
+  border: 1px solid var(--background-modifier-border);
 }
 .callout-title-inner {
   font-weight: var(--bold-weight);
@@ -449,16 +551,19 @@ body.info-center {
   margin-left: auto;
   margin-right: auto;
 }
-
 .callout-icon .svg-icon {
   color: var(--text-normal);
   margin-left: 2px;
 }
+.hide-callout-icons .callout-icon .svg-icon {
+  display: none;
+}
 
 .markdown-rendered hr {
-  border-top: 1px solid;
-  border-color: #a2a9b1;
-  opacity: 0%;
+  color: var(--border-color);
+  border-width: 1px;
+  opacity: 1;
+  overflow: hidden;
   margin: 0;
 }
 
@@ -467,50 +572,20 @@ body.info-center {
 
 /* BLOCKQUOTES */
 
-body.blockquote-infobox {
-  --blockquote-border: 1px solid var(--border-color);
-  --blockquote-font-style: normal;
-  --blockquote-padding: 0.2em;
-  --blockquote-background-color: var(--infobox-color);
-  --blockquote-clear: right;
-  --blockquote-line-height: 1.5em;
-}
-body.blockquote-infobox.info-center {
-  --blockquote-margin: 1em auto 1em auto;
-  --blockquote-float: inherit;
-  --blockquote-width: 100%;
-}
-
-body.blockquote-infobox.info-float {
-  --blockquote-margin: 0.5em 0 0.5em 1em;
-  --blockquote-float: right;
-  --blockquote-width: 25%;
-}
-
-body.blockquote-normal, body {
-  --blockquote-border: none;
-  --blockquote-font-style: italic;
-  --blockquote-padding: 0.8em;
-  --blockquote-background-color: transparent;
-  --blockquote-float:inherit;
-  --blockquote-clear: inherit;
-  --blockquote-radius: var(--callout-radius);
-  --blockquote-margin: 0.5em 0 0.5em 1em;
+.blockquote-infobox .markdown-rendered blockquote {
+  background-color: var(--infobox-color);
+  padding: 1em;
+  border: solid 1px var(--border-color);
+  margin-right: 1em;
+  font-style: normal;
 }
 
 .markdown-rendered blockquote {
+  padding-left: 1em;
   overflow: hidden;
   border-left: none;
-  color: var(--text-normal);
-  padding: var(--blockquote-padding);
-  font-style: var(--blockquote-font-style);
-  border: var(--blockquote-border);
-  background-color: var(--blockquote-background-color);
-  float: var(--blockquote-float);
-  clear: var(--blockquote-clear);
-  line-height: var(--blockquote-line-height);
-  width: var(--blockquote-width);
-  margin: var(--blockquote-margin);
+  font-style: italic;
+  margin: 1.3em 0px;
 }
 
 
@@ -532,6 +607,62 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
+/* ----- PAGE GALLERY ----- */
+.page-gallery {
+ --columns: unset; 
+}
+.page-gallery__tile {
+  border: 1px var(--border-color) solid;
+  padding: 2px;
+  background-color: var(--infobox-color);
+  height: flex;
+  width: 300px;
+  height: 300px;
+  padding: 0px;
+  margin: 0px;
+}
+.page-gallery__tiles {
+  gap: 4px;
+  min-width: 100%;
+  padding: 0px;
+  margin: 0px;
+  justify-content:center;
+}
+.page-gallery__groups {
+  gap: 4px;
+  width: 100%;
+  padding: 0px;
+}
+.page-gallery__fallback, .page-gallery__fallback:hover {
+  border-radius: 0px;
+  box-shadow: none;
+  opacity: 1;
+  min-height: 120px;
+  background: rgb(var(--callout-quote)) !important;
+}
+.page-gallery__image, .page-gallery__image:hover {
+  border-radius: 0px;
+  box-shadow: none;
+  opacity: 1;
+  min-height: 120px;
+}
+.page-gallery__field:first-child {
+  background-color: var(--h6-background);
+  text-align: center;
+  margin-top: 4px;
+  font-size: 1em;
+}
+.page-gallery__fields {
+  text-shadow: none;
+  margin: 0px;
+  padding: 4px;
+  word-wrap: break-word;
+  white-space: initial;
+}
+.page-gallery__field {
+  font-size: 0.9em;
+}
+
 
 /* @settings
 
@@ -578,48 +709,36 @@ settings:
               label: infobox
               value: blockquote-infobox
     -
-        id: blockquote-placement
-        title: Infobox Placement
-        description: choose whether to float infoboxes to the right or set them in the default center position.
-        type: class-select
-        allowEmpty: false
-        default: info-float
-        options:
-            -
-              label: float right
-              value: info-float
-            -
-              label: center
-              value: info-center
+        id: info-frontmatter
+        title: Style Frontmatter as an Infobox
+        type: class-toggle
+        default: false
+    -
+        id: hide-callout-title
+        title: Hide Info Callout Title
+        type: class-toggle
+        default: false
+    -
+    
+        id: hide-callout-icons
+        title: Hide Callout Icons
+        type: class-toggle
+        default: true
     -
         id: images-header
         title: Images
         type: heading
         level: 2
-        collapsed: true
-    -
-        id: image-settings
-        title: Image Placement
-        type: class-select
-        allowEmpty: false
-        default: float-image
-        options:
-            - 
-              label: float right
-              value: float-image
-            - 
-              label: center
-              value: image-normal 
+        collapsed: true 
     - 
         id: image-controlled-width
         title: Image Size
-        description: Only effects images when image placement is set to center.
         type: variable-number-slider
         format: "%"
-        default: 80
-        min: 25
-        max: 100
-        step: 10
+        default: 30
+        min: 20
+        max: 40
+        step: 1
 
     
 
