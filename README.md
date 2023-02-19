@@ -1,32 +1,28 @@
-![](assets/theme-article.png)
+![](assets/newest.png) 
 
+# Familiar Look
+Make your vault look like your own personal Wikipedia! This theme styles images, headings, and even the sidebar in the classic style of your favourite encyclopedia.
 
-A theme designed to make your Obsidian workspace look and feel like wikipedia.org! 
+# Infoboxes
+Any **Info** blockquote (created using `>[!info]`) will float to the right of the note like an infobox. Inline dataview fields inside these **Info** blockquotes will be displayed on separate lines, styled like Wikipedia's infobox headings and descriptions (see image above). You can also create an infobox heading with a yellow background by adding a **Heading 6**. 
+>Tip - Hide the infobox callout's title with the Style Settings plug-in for a cleaner look.
 
-## ⭐ Features
-- Wikipedia-style headings, titles, tabs, sidebars, and more.
-- Support for inline metadata and tables created with the Dataview plugin.
-- Images and callouts float to the side (Can be changed with style settings).
-- Works on mobile devices.
+# Update
+- All images will now float except those placed inside callouts.
+  - An image directly after another image will float to the left instead of the right.
+- The info callout is now the only callout that will float to the right. For simplicity, infobox blockquotes can no longer float to the right, either.
+- Dark mode has been updated.
+- Callouts have a new look!
+- Multiple changes to typography
+  - Default font changed to **Arial**
+  - Modifications to Headings
+- Images now have the signature Wikipedia border around them.
 
-## ☝🏽 Notes
-- Some of the css was taken directly from wikipedia.org and mapped to components in Obsidian.
-- This theme makes dividers invisible. 
-  - This was a creative choice, as Wikipedia articles do not use dividers. 
-- *For optimal viewing quality, go to **Editor** in **Settings** and **turn off Readable Line Length***.
-- I'm not a theme developer or anything, just a 15-year-old who likes to play with css.
-
-## 🎉 Update
-- Now supports Dark Mode!
-### 🎨 Style Settings
-- You can now choose to use your own accent color rather than Wikipedia's blue!
-- Blockquotes can be formatted either like Wikipedia quotes or like infoboxes
-- Images and infoboxes can be centered (I recommend this if you'd like to keep Readable Line Length turned off)
-- You can now change image size (only applied if images are centered)
-## ❗ Got Ideas for Improvement? I'd Love to Hear Them!
-If you find any issues you know how to fix or you have modifications you'd like me to merge into the theme, please let me know. I barely know css and just did this as a fun project, but if you find any ways to make this theme better, I'd love to hear them.
-
-## Screenshots 
+# Notes
+- I'm not a theme developer or anything, just a 15-year-old who likes to waste time with CSS.
+- A good chunk of the CSS *was* actually taken directly from Wikipedia and mapped to components in Obsidian.
+- Feel free to make pull requests or suggestions for this theme. Or remix it into your own thing. It's under the MIT license.
+## Screenshots (Outdated)
 
 ![](assets/article-example.png)
 
