@@ -419,7 +419,9 @@ body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .
 }
 
 /* float images to the right */
-
+.community-item-screenshot {
+  width: 95% !important;
+}
 img{
   float: right;
   margin: 0.7em;
