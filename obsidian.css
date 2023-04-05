@@ -63,7 +63,7 @@ body{
 }
 
 /* header 1 */
-.markdown-reading-view h1, .embed-title {
+.markdown-reading-view h1, .embed-title, h1 {
   margin-top: 1em;
   padding: 0;
   margin-bottom: 0.25em;
@@ -246,7 +246,7 @@ body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section {
 /* --- Blockquote Style Frontmatter --- */
 .frontmatter-blockquote .frontmatter-container.is-collapsed .frontmatter-container-header {
   width: fit-content;
-  color: var(--text-normal);
+  color: var(--text-faint);
 }
 .frontmatter-blockquote .frontmatter-container .frontmatter-container-header {
   border-bottom: none;
@@ -457,6 +457,11 @@ body {
 /* don't float images inside community themes */
 .community-item-screenshot {
   width: 100% !important;
+}
+.community-modal-readme img {
+  float: none;
+  clear: none;
+  width:unset;
 }
 
 .cm-contentContainer img {
@@ -803,7 +808,7 @@ body {
   --color-base-60: rgb(179, 181, 193);
   --color-base-70: #d0d4d9;
   --h6-background: hsla(var(--accent-h), 35%, calc(var(--accent-l) + 10%), 15%);
-  --color-base-100: #e9ecf1;
+  --color-base-100: #d8dce3;
   --background-secondary-alt: var(--color-base-10);
   --background-modifier-border: #dae1ea31;
 
@@ -843,7 +848,7 @@ body {
   --color-base-30: #e0e0e0;
   --color-base-35: #d4d4d4;
   --color-base-40: #bdbdbd;
-  --color-base-50: #ababab;
+  --color-base-50: #989898;
   --color-base-60: #707070;
   --color-base-70: #5a5a5a;
   --color-base-100: #222222;
