@@ -189,6 +189,7 @@ body:not(.frontmatter-blockquote) .frontmatter-container.is-collapsed .frontmatt
   padding-bottom: 0px;
   margin-bottom: 0px;
   padding: 0px 2px;
+  width: fit-content;
 }
 
 
