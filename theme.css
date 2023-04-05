@@ -190,9 +190,7 @@ body:not(.frontmatter-blockquote) .frontmatter-container.is-collapsed .frontmatt
   margin-bottom: 0px;
   padding: 0px 2px;
 }
-body:not(.frontmatter-blockquote) .frontmatter-container.is-collapsed {
-  width: fit-content;
-}
+
 
 /* make Metadata text disappear when not collapsed */
 body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .frontmatter-container-header {
@@ -223,25 +221,28 @@ body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section-la
     font-size: var(--h6-size);
     color: var(--text-normal);
     font-weight: var(--font-bold);
-    display:block;
     background-color: var(--h6-background);
     text-align: center;
     margin-bottom: 0.2em;
     padding: 0px;
+   display: block;
 }
 /* style section data */
 body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section-data {
   font-size: var(--font-text-size);
   align-items: center;
   text-align: center;
+  display: block;
+
 }
 
 /* style label-data pairs */
-body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section {
-  display: block;
+body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .frontmatter-section {
   text-align: center;
   margin-bottom: 0.5em;
+  display: block;
 }
+
 
 /* --- Blockquote Style Frontmatter --- */
 .frontmatter-blockquote .frontmatter-container.is-collapsed .frontmatter-container-header {
