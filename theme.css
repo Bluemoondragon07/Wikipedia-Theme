@@ -188,8 +188,10 @@ body:not(.frontmatter-blockquote) .frontmatter-container.is-collapsed .frontmatt
   border-bottom: none;
   padding-bottom: 0px;
   margin-bottom: 0px;
-  padding: 0px 2px;
   width: fit-content;
+}
+body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) {
+  width: var(--infobox-width);
 }
 
 
@@ -204,10 +206,10 @@ body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .fro
   height: 0px;
 }
 
+
 /* make container look like wikipedia infobox */
 body:not(.frontmatter-blockquote) .frontmatter-container {
   background-color: var(--background-secondary-alt);
-  width: var(--infobox-width);
   padding: 0.2em;
   line-height: 1.5em;
   border: 1px solid var(--background-modifier-border);
