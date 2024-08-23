@@ -296,6 +296,9 @@ body {
   word-break: break-all;
 }
 
+.markdown-rendered table {
+    word-break: unset;
+}
 
 /* dataview tables */
 
